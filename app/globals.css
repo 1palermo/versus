@@ -2,32 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body.dark {
+  --bg: hsl(230, 17%, 14%);
+  --bg-top: hsl(232, 19%, 15%);
+  --bg-card: hsl(228, 28%, 20%);
+  --text: hsl(228, 34%, 66%);
+  --text-secondary: hsl(0, 0%, 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body.light {
+  --bg: hsl(0, 0%, 100%);
+  --bg-top: hsl(225, 100%, 98%);
+  --bg-card: hsl(227, 47%, 96%);
+  --text: hsl(228, 12%, 44%);
+  --text-secondary: hsl(230, 17%, 14%);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-[var(--bg)] text-[var(--text)] font-sans;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.bg-facebook-500 {
+  @apply bg-blue-600;
+}
+
+.bg-twitter-500 {
+  @apply bg-blue-400;
+}
+
+.bg-youtube-500 {
+  @apply bg-red-600;
 }
